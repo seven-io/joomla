@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="message">
+        <field
+                name="id"
+                type="hidden"
+        />
+
+        <field
+                name="text"
+                type="textarea"
+                label="COM_SMS77API_TEXT_LABEL"
+                description="COM_SMS77API_TEXT_DESC"
+                hint="COM_SMS77API_TEXT_DESC"
+                required="true"
+        />
+
+        <field
+                description="COM_SMS77API_TO_DESC"
+                hint="COM_SMS77API_TO_DESC"
+                label="COM_SMS77API_TO_LABEL"
+                name="to"
+                required="true"
+                type="text"
+        />
+
+        <field
+                name="configuration"
+                type="sql"
+                label="COM_SMS77API_CHOOSE_CONFIG"
+                query="SELECT id, api_key FROM #__sms77api_configurations"
+                key_field="id"
+                value_field="api_key"
+                required="true"
+        />
+    </fieldset>
+</form>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="component" version="3.8" method="upgrade">
+    <name>COM_SMS77API</name>
+    <creationDate>June 2020</creationDate>
+    <author>sms77 e.K.</author>
+    <authorEmail>support@sms77.io</authorEmail>
+    <authorUrl>http://sms77.io</authorUrl>
+    <copyright>sms77 e.K.</copyright>
+    <license>MIT; see LICENSE.txt</license>
+    <version>1.0</version>
+    <description>COM_SMS77API_XML_DESCRIPTION</description>
+
+    <!-- Scripts to run on installation -->
+    <scriptfile>script.php</scriptfile>
+
+    <!-- Runs on install -->
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install/mysql/mysql.sql</file>
+        </sql>
+    </install>
+
+    <!-- Runs on update -->
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <!-- Media files -->
+    <media folder="media/com_sms77api" destination="com_sms77api">
+        <folder>css</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+    </media>
+
+    <!-- Front-end files -->
+    <files folder="components/com_sms77api">
+        <filename>sms77api.php</filename>
+        <filename>controller.php</filename>
+        <folder>controllers</folder>
+        <folder>language</folder>
+        <folder>layouts</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+
+    <!-- Back-end files -->
+    <administration>
+        <!-- Menu entries -->
+        <menu view="configuration">COM_SMS77API</menu>
+        <submenu>
+            <!--
+                Note that all & must be escaped to &amp; for the file to be valid
+                XML and be parsed by the installer
+            -->
+            <menu link="option=com_sms77api">COM_SMS77API_CONFIGURATIONS</menu>
+            <menu link="option=com_sms77api&amp;view=messages">COM_SMS77API_MESSAGES</menu>
+        </submenu>
+
+        <!-- Core files -->
+        <files folder="administrator/components/com_sms77api">
+            <filename>sms77api.php</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>LICENSE.txt</filename>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+            <folder>language</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+    </administration>
+
+    <!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="sms77api">https://addons.sms77.io/_joomla/sms77api.xml</server>
+    </updateservers>
+</extension>
