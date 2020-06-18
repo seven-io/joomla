@@ -79,8 +79,29 @@ class Sms77apiModelMessage extends AdminModel {
      */
     public function save($data) {
         $text = $data['text'];
-        $to = $data['to'];
+        $to = array_key_exists('to', $data) ? [$data['to']] : [];
         $config = $this->configHelper->byId($data['configuration']);
+
+        if (array_key_exists('shopper_group', $data)
+            && '' !== $data['shopper_group']) {
+            $userIds = array_keys(JFactory::getDbo()->setQuery('SELECT `virtuemart_user_id` FROM `#__virtuemart_vmuser_shoppergroups`'
+                . " WHERE `virtuemart_shoppergroup_id` = {$data['shopper_group']}")->loadRowList(0));
+
+            foreach ($userIds as $userId) {
+                $user = JFactory::getDbo()->setQuery('SELECT * FROM #__virtuemart_userinfos'
+                    . " WHERE virtuemart_user_id = $userId AND address_type = 'BT' AND locked_by = 0")
+                    ->loadObject();
+
+                //phone_2 is mobile in the frontend
+                $phone = utf8_strlen($user->phone_2) ? $user->phone_2 : $user->phone_1;
+
+                if (utf8_strlen($phone)) {
+                    $to[] = $phone;
+                }
+            }
+        }
+
+        $to = implode(',', $to);
 
         $response = json_encode((new Sms77apiHelper($config->api_key))->sms(compact('text', 'to')));
 

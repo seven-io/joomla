@@ -7,6 +7,16 @@
         />
 
         <field
+                name="configuration"
+                type="sql"
+                label="COM_SMS77API_CHOOSE_CONFIG"
+                query="SELECT id, api_key FROM #__sms77api_configurations"
+                key_field="id"
+                value_field="api_key"
+                required="true"
+        />
+
+        <field
                 name="text"
                 type="textarea"
                 label="COM_SMS77API_TEXT_LABEL"
@@ -20,18 +30,18 @@
                 hint="COM_SMS77API_TO_DESC"
                 label="COM_SMS77API_TO_LABEL"
                 name="to"
-                required="true"
                 type="text"
         />
 
         <field
-                name="configuration"
+                header=" "
+                name="shopper_group"
                 type="sql"
-                label="COM_SMS77API_CHOOSE_CONFIG"
-                query="SELECT id, api_key FROM #__sms77api_configurations"
-                key_field="id"
-                value_field="api_key"
-                required="true"
+                label="COM_VIRTUEMART_SHOPPERGROUP"
+                query="SELECT virtuemart_shoppergroup_id, shopper_group_name FROM #__virtuemart_shoppergroups WHERE published = 1"
+                key_field="virtuemart_shoppergroup_id"
+                value_field="shopper_group_name"
+                translate="true"
         />
     </fieldset>
 </form>

@@ -18,27 +18,48 @@ HTMLHelper::_('behavior.keepalive');
 HTMLHelper::_('formbehavior.chosen');
 
 Factory::getDocument()->addScriptDeclaration(<<<JS
-		Joomla.submitbutton = function(task)
-		{
-			if (task === 'message.cancel' || document.formvalidator.isValid(document.getElementById('adminForm')))
-			{
-				Joomla.submitform(task, document.getElementById('adminForm'));
-			}
-		};
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('adminForm');
+            const to = document.getElementById('jform_to');
+            const shopperGroup = document.getElementById('jform_shopper_group');
+            
+            const hasShopper = () => '' !== shopperGroup.value;
+            
+            Joomla.submitbutton = task => {
+                if (hasShopper()) {
+                    to.value = '';
+                }
+                
+                if (task === 'message.cancel' || document.formvalidator.isValid(form)) {
+                    Joomla.submitform(task, form);
+                }
+            };
+            		
+            shopperGroup.addEventListener('change', () => to.disabled = hasShopper()); 
+        });
 JS
 );
+
+$fields = ['text', 'configuration', 'to'];
+if (JComponentHelper::isEnabled('com_virtuemart')) {
+    $fields[] = 'shopper_group';
+
+    $lang = JFactory::getLanguage();
+    $lang->load('com_virtuemart', JPATH_ADMINISTRATOR . '/components/com_virtuemart');
+    $lang->load('com_virtuemart_shoppers', JPATH_ROOT . '/components/com_virtuemart');
+}
 ?>
-<form action="<?php echo Route::_('index.php?option=com_sms77api&layout=edit&id=' . (int)$this->message->id); ?>"
+<form action="<?php echo Route::_("index.php?option=com_sms77api&layout=edit&id={$this->message->id}") ?>"
       method="post" name="adminForm" enctype="multipart/form-data" id="adminForm"
       class="form-validate">
-    <?php
-    echo $this->form->renderField('text')
-        . $this->form->renderField('configuration')
-        . $this->form->renderField('to'); ?>
-
     <input type="hidden" name="task" value=""/>
 
     <?php
-    echo $this->form->getInput('id') .
-        HTMLHelper::_('form.token'); ?>
+    foreach ($fields as $field) {
+        echo $this->form->renderField($field);
+    }
+
+    echo $this->form->getInput('id');
+    echo HTMLHelper::_('form.token');
+    ?>
 </form>
