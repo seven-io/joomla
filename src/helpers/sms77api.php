@@ -27,15 +27,13 @@ class Sms77apiHelper {
     }
 
     public function balance() {
-        $balance = $this->get(self::baseURL . "balance?p={$this->apiKey}");
+        $balance = $this->get('balance');
 
         return null === $balance ? null : (float)$balance;
     }
 
     public function sms(array $args) {
-        $qs = http_build_query(array_merge($args, ['json' => 1]));
-
-        $res = json_decode($this->get(self::baseURL . "sms?p={$this->apiKey}&$qs"), true);
+        $res = json_decode($this->get('sms', array_merge($args, ['json' => 1])), true);
 
         return '100' === $res['success'] ? $res : null;
     }
@@ -44,8 +42,10 @@ class Sms77apiHelper {
         return is_float($this->balance());
     }
 
-    public function get($url) {
-        $res = $this->http->get($url);
+    public function get($endpoint, array $args = []) {
+        $qs = http_build_query(array_merge($args, ['p' => $this->apiKey, 'sendWith' => 'Joomla',]));
+
+        $res = $this->http->get(self::baseURL . "$endpoint?$qs");
 
         if (200 === $res->code) {
             return $res->body;
