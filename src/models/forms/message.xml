@@ -33,9 +33,11 @@
                 type="text"
         />
 
+        <field name="country_id" type="text"/>
+
         <field
-                header=" "
-                name="shopper_group"
+                header="COM_VIRTUEMART_LIST_EMPTY_OPTION"
+                name="shopper_group_id"
                 type="sql"
                 label="COM_VIRTUEMART_SHOPPERGROUP"
                 query="SELECT virtuemart_shoppergroup_id, shopper_group_name FROM #__virtuemart_shoppergroups WHERE published = 1"

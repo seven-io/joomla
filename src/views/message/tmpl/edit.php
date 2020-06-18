@@ -21,12 +21,16 @@ Factory::getDocument()->addScriptDeclaration(<<<JS
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('adminForm');
             const to = document.getElementById('jform_to');
-            const shopperGroup = document.getElementById('jform_shopper_group');
-            
-            const hasShopper = () => '' !== shopperGroup.value;
+            const shopperGroupId = document.getElementById('jform_shopper_group_id');
+            const countryId = document.getElementById('jform_country_id');
+                        
+            const ignoreTo = () => '' !== shopperGroupId.value || '' !== countryId.value;
+            		
+            shopperGroupId.addEventListener('change', () => to.disabled = ignoreTo());
+            countryId.addEventListener('change', () => to.disabled = ignoreTo());
             
             Joomla.submitbutton = task => {
-                if (hasShopper()) {
+                if (ignoreTo()) {
                     to.value = '';
                 }
                 
@@ -34,15 +38,19 @@ Factory::getDocument()->addScriptDeclaration(<<<JS
                     Joomla.submitform(task, form);
                 }
             };
-            		
-            shopperGroup.addEventListener('change', () => to.disabled = hasShopper()); 
         });
 JS
 );
-
+$hasVirtueMart = JComponentHelper::isEnabled('com_virtuemart');
 $fields = ['text', 'configuration', 'to'];
-if (JComponentHelper::isEnabled('com_virtuemart')) {
-    $fields[] = 'shopper_group';
+if ($hasVirtueMart) {
+    $fields[] = 'shopper_group_id';
+
+    if (!class_exists('VmConfig')) {
+        require JPATH_ADMINISTRATOR . '/components/com_virtuemart/helpers/config.php';
+    }
+
+    VmConfig::loadConfig();
 
     $lang = JFactory::getLanguage();
     $lang->load('com_virtuemart', JPATH_ADMINISTRATOR . '/components/com_virtuemart');
@@ -57,6 +65,22 @@ if (JComponentHelper::isEnabled('com_virtuemart')) {
     <?php
     foreach ($fields as $field) {
         echo $this->form->renderField($field);
+    }
+
+    if ($hasVirtueMart) {
+        ?>
+        <div class="control-group">
+            <div class="control-label">
+                <label id="jform_country_id-lbl" for="jform_country_id">
+                    <?php echo VmText::_('COM_VIRTUEMART_COUNTRY') ?></label>
+            </div>
+
+            <div class="controls">
+                <?php echo ShopFunctionsF::renderCountryList(
+                    0, false, [], '', 0, 'jform_country_id', 'jform[country_id]') ?>
+            </div>
+        </div>
+        <?php
     }
 
     echo $this->form->getInput('id');

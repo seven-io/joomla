@@ -70,6 +70,40 @@ class Sms77apiModelMessage extends AdminModel {
         return $data;
     }
 
+    private function _toNullableId($key, array $data) {
+        return array_key_exists($key, $data) && '' !== $data[$key]
+            ? (int)$data[$key] : null;
+    }
+
+    private function _getShoppingGroupUsers($shopperGroupId) {
+        $sql = 'SELECT `virtuemart_user_id` FROM `#__virtuemart_vmuser_shoppergroups`';
+        $sql .= " WHERE `virtuemart_shoppergroup_id` = {$shopperGroupId}";
+        return array_keys(JFactory::getDbo()->setQuery($sql)->loadRowList(0));
+    }
+
+    private function _toPhone($user, &$to) {
+        if (!is_object($user)) {
+            return null;
+        }
+
+        //phone_2 is mobile in the frontend
+        $phone = utf8_strlen($user->phone_2) ? $user->phone_2 : $user->phone_1;
+
+        if (utf8_strlen($phone)) {
+            $to[] = $phone;
+        }
+
+        return $phone;
+    }
+
+    private function _whereCountryId($countryId, $sql) {
+        if ($countryId) {
+            $sql .= " AND virtuemart_country_id = $countryId";
+        }
+
+        return $sql;
+    }
+
     /**
      * Method to save the form data.
      * @param array $data The form data.
@@ -81,33 +115,34 @@ class Sms77apiModelMessage extends AdminModel {
         $text = $data['text'];
         $to = array_key_exists('to', $data) ? [$data['to']] : [];
         $config = $this->configHelper->byId($data['configuration']);
+        $shopperGroupId = $this->_toNullableId('shopper_group_id', $data);
+        $countryId = $this->_toNullableId('country_id', $data);
 
-        if (array_key_exists('shopper_group', $data)
-            && '' !== $data['shopper_group']) {
-            $userIds = array_keys(JFactory::getDbo()->setQuery('SELECT `virtuemart_user_id` FROM `#__virtuemart_vmuser_shoppergroups`'
-                . " WHERE `virtuemart_shoppergroup_id` = {$data['shopper_group']}")->loadRowList(0));
-
-            foreach ($userIds as $userId) {
-                $user = JFactory::getDbo()->setQuery('SELECT * FROM #__virtuemart_userinfos'
-                    . " WHERE virtuemart_user_id = $userId AND address_type = 'BT' AND locked_by = 0")
-                    ->loadObject();
-
-                //phone_2 is mobile in the frontend
-                $phone = utf8_strlen($user->phone_2) ? $user->phone_2 : $user->phone_1;
-
-                if (utf8_strlen($phone)) {
-                    $to[] = $phone;
-                }
+        $sql = 'SELECT * FROM #__virtuemart_userinfos WHERE address_type = "BT" AND locked_by = 0';
+        if ($shopperGroupId) {
+            foreach ($this->_getShoppingGroupUsers($shopperGroupId) as $userId) {
+                $sql .= " AND virtuemart_user_id = $userId";
+                $sql = $this->_whereCountryId($countryId, $sql);
+                $this->_toPhone(JFactory::getDbo()->setQuery($sql)->loadObject(), $to);
+            }
+        } elseif ($countryId) {
+            foreach (
+                JFactory::getDbo()->setQuery($this->_whereCountryId($countryId, $sql))->loadObjectList()
+                as $user) {
+                $this->_toPhone($user, $to);
             }
         }
 
         $to = implode(',', $to);
 
-        $response = json_encode((new Sms77apiHelper($config->api_key))->sms(compact('text', 'to')));
+        if (!utf8_strlen($to)) {
+            JFactory::getApplication()->enqueueMessage('COM_SMS77API_NO_RECIPIENTS_MATCH', 'type');
+            return false;
+        }
 
+        $response = json_encode((new Sms77apiHelper($config->api_key))->sms(compact('text', 'to')));
         unset($config->id, $config->updated, $config->published);
         $config = json_encode($config);
-
         return parent::save(compact('response', 'config'));
     }
 }
