@@ -27,20 +27,12 @@
         </schemas>
     </update>
 
-    <!-- Media files -->
-    <media folder="media/com_sms77api" destination="com_sms77api">
-        <folder>css</folder>
-        <folder>images</folder>
-        <folder>js</folder>
-    </media>
-
     <!-- Front-end files -->
     <files folder="components/com_sms77api">
         <filename>sms77api.php</filename>
         <filename>controller.php</filename>
         <folder>controllers</folder>
         <folder>language</folder>
-        <folder>layouts</folder>
         <folder>models</folder>
         <folder>views</folder>
     </files>
@@ -66,6 +58,7 @@
             <filename>controller.php</filename>
             <filename>LICENSE.txt</filename>
             <folder>controllers</folder>
+            <folder>exceptions</folder>
             <folder>helpers</folder>
             <folder>language</folder>
             <folder>models</folder>
