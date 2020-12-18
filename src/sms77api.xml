@@ -67,9 +67,4 @@
             <folder>views</folder>
         </files>
     </administration>
-
-    <!-- Update servers -->
-    <updateservers>
-        <server type="extension" priority="1" name="sms77api">https://addons.sms77.io/_joomla/sms77api.xml</server>
-    </updateservers>
 </extension>
