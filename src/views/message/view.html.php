@@ -75,8 +75,8 @@ class Sms77apiViewMessage extends HtmlView {
 
         // If not checked out, can save the message.
         if ($canDo->get('core.edit') || ($canDo->get('core.create'))) {
-            JToolBarHelper::apply('message.apply', 'JTOOLBAR_APPLY');
-            JToolBarHelper::save('message.save', 'JTOOLBAR_SAVE');
+            JToolBarHelper::apply('message.apply');
+            JToolBarHelper::save('message.save');
         }
 
         if ($canDo->get('core.create')) {
@@ -89,7 +89,7 @@ class Sms77apiViewMessage extends HtmlView {
         }
 
         if (empty($this->message->id)) {
-            JToolBarHelper::cancel('message.cancel', 'JTOOLBAR_CANCEL');
+            JToolBarHelper::cancel('message.cancel');
         } else {
             JToolBarHelper::cancel('message.cancel', 'JTOOLBAR_CLOSE');
         }

@@ -113,6 +113,7 @@ class Sms77apiModelMessage extends AdminModel {
      */
     public function save($data) {
         $text = $data['text'];
+        $from = $data['from'];
         $to = array_key_exists('to', $data) ? [$data['to']] : [];
         $config = $this->configHelper->byId($data['configuration']);
         $shopperGroupId = $this->_toNullableId('shopper_group_id', $data);
@@ -140,7 +141,8 @@ class Sms77apiModelMessage extends AdminModel {
             return false;
         }
 
-        $response = json_encode((new Sms77apiHelper($config->api_key))->sms(compact('text', 'to')));
+        $response = json_encode((new Sms77apiHelper($config->api_key))
+            ->sms(compact('text', 'to', 'from')));
         unset($config->id, $config->updated, $config->published);
         $config = json_encode($config);
         return parent::save(compact('response', 'config'));

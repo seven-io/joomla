@@ -88,9 +88,8 @@ class Sms77apiViewMessages extends HtmlView {
 
         $this->toolbar();
 
-        // Show the sidebar
         (new ConfigurationHelper)->addSubmenu('messages');
-        $this->sidebar = JHtmlSidebar::render();
+        $this->sidebar = JHtmlSidebar::render(); // show sidebar
 
         return parent::display($tpl);
     }
@@ -108,7 +107,7 @@ class Sms77apiViewMessages extends HtmlView {
         }
 
         if (Factory::getUser()->authorise('core.admin', 'com_sms77api')) {
-            JToolBarHelper::preferences('com_sms77api');         // Options button.
+            JToolBarHelper::preferences('com_sms77api'); // options button
         }
     }
 }
