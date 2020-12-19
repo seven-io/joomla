@@ -27,16 +27,6 @@
         </schemas>
     </update>
 
-    <!-- Front-end files -->
-    <files folder="components/com_sms77api">
-        <filename>sms77api.php</filename>
-        <filename>controller.php</filename>
-        <folder>controllers</folder>
-        <folder>language</folder>
-        <folder>models</folder>
-        <folder>views</folder>
-    </files>
-
     <!-- Back-end files -->
     <administration>
         <!-- Menu entries -->
