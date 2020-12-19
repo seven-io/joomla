@@ -45,6 +45,12 @@
                 type="text"
         />
 
+        <field
+                label="COM_SMS77API_LABEL"
+                name="label"
+                type="text"
+        />
+
         <field name="country_id" type="text"/>
 
         <field

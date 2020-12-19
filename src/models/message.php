@@ -44,7 +44,8 @@ class Sms77apiModelMessage extends AdminModel {
      * @since   1.0.0
      */
     public function getForm($data = [], $loadData = true) {
-        $form = $this->loadForm('com_sms77api.message', 'message', ['control' => 'jform', 'load_data' => $loadData]);
+        $form = $this->loadForm('com_sms77api.message', 'message',
+            ['control' => 'jform', 'load_data' => $loadData]);
 
         if (empty($form)) {
             return false;
@@ -113,14 +114,12 @@ class Sms77apiModelMessage extends AdminModel {
      */
     public function save($data) {
         $text = $data['text'];
-        $foreign_id = $data['foreign_id'];
-        $from = $data['from'];
         $to = array_key_exists('to', $data) ? [$data['to']] : [];
         $config = $this->configHelper->byId($data['configuration']);
         $shopperGroupId = $this->_toNullableId('shopper_group_id', $data);
         $countryId = $this->_toNullableId('country_id', $data);
-
         $sql = 'SELECT * FROM #__virtuemart_userinfos WHERE address_type = "BT" AND locked_by = 0';
+
         if ($shopperGroupId) {
             foreach ($this->_getShoppingGroupUsers($shopperGroupId) as $userId) {
                 $sql .= " AND virtuemart_user_id = $userId";
@@ -129,7 +128,8 @@ class Sms77apiModelMessage extends AdminModel {
             }
         } elseif ($countryId) {
             foreach (
-                JFactory::getDbo()->setQuery($this->_whereCountryId($countryId, $sql))->loadObjectList()
+                JFactory::getDbo()
+                    ->setQuery($this->_whereCountryId($countryId, $sql))->loadObjectList()
                 as $user) {
                 $this->_toPhone($user, $to);
             }
@@ -138,14 +138,18 @@ class Sms77apiModelMessage extends AdminModel {
         $to = implode(',', $to);
 
         if (!utf8_strlen($to)) {
-            JFactory::getApplication()->enqueueMessage('COM_SMS77API_NO_RECIPIENTS_MATCH', 'type');
+            JFactory::getApplication()
+                ->enqueueMessage('COM_SMS77API_NO_RECIPIENTS_MATCH', 'type');
             return false;
         }
 
-        $response = json_encode((new Sms77apiHelper($config->api_key))
-            ->sms(compact('text', 'to', 'from', 'foreign_id')));
-        unset($config->id, $config->updated, $config->published);
-        $config = json_encode($config);
-        return parent::save(compact('response', 'config'));
+        unset($data['configuration'], $data['shopper_group_id'], $data['country_id'],
+            $config->id, $config->updated, $config->published);
+
+        return parent::save([
+            'config' => json_encode($config),
+            'response' => json_encode((new Sms77apiHelper($config->api_key))
+                ->sms(array_merge($data, compact('text', 'to')))),
+        ]);
     }
 }

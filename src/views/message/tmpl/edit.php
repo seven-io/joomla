@@ -42,7 +42,7 @@ Factory::getDocument()->addScriptDeclaration(<<<JS
 JS
 );
 $hasVirtueMart = JComponentHelper::isEnabled('com_virtuemart');
-$fields = ['text', 'configuration', 'to', 'from', 'foreign_id'];
+$fields = ['text', 'configuration', 'to', 'from', 'foreign_id', 'label'];
 if ($hasVirtueMart) {
     $fields[] = 'shopper_group_id';
 
