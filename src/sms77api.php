@@ -7,6 +7,8 @@
  * @link       http://sms77.io
  */
 
+require __DIR__ . '/vendor/autoload.php';
+
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;

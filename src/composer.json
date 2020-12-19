@@ -1,0 +1,28 @@
+{
+    "name": "sms77/joomla",
+    "homepage": "https://github.com/sms77io/joomla",
+    "keywords": [
+        "sms",
+        "joomla"
+    ],
+    "description": "Official Joomla! component for using the Sms77.io SMS Gateway.",
+    "authors": [
+        {
+            "name": "André Matthies",
+            "email": "a.matthies@sms77.io",
+            "homepage": "http://www.sms77.io",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@sms77.io",
+        "rss": "https://www.sms77.io/de/feed/",
+        "source": "https://github.com/sms77io/joomla",
+        "docs": "https://github.com/sms77io/joomla"
+    },
+    "type": "joomla-component",
+    "license": "MIT",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
