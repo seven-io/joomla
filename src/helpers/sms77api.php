@@ -33,24 +33,38 @@ class Sms77apiHelper {
     }
 
     public function sms(array $args) {
-        $res = json_decode($this->get('sms', array_merge($args, ['json' => 1])), true);
+        $res = $this->post('sms', array_merge($args, ['json' => 1]));
 
-        return '100' === $res['success'] ? $res : null;
+        return in_array($res['success'], ['100', '101']) ? $res : null;
     }
 
     public function isValidApiKey() {
         return is_float($this->balance());
     }
 
+    private function makeUrl($endpoint) {
+        return self::baseURL . $endpoint;
+    }
+
+    private function makeHeaders() {
+        return ['Authorization' => "Bearer $this->apiKey", 'sentWith' => 'Joomla',];
+    }
+
+    private function handleResponse($res) {
+        return 200 === $res->code ? json_decode($res->body, true) : null;
+    }
+
     public function get($endpoint, array $args = []) {
-        $qs = http_build_query(array_merge($args, ['p' => $this->apiKey, 'sendWith' => 'Joomla',]));
-
-        $res = $this->http->get(self::baseURL . "$endpoint?$qs");
-
-        if (200 === $res->code) {
-            return $res->body;
+        $url = $this->makeUrl($endpoint);
+        if (count($args)) {
+            $url .= '?' . http_build_query(array_merge($args));
         }
 
-        return null;
+        return $this->handleResponse($this->http->get($url, $this->makeHeaders()));
+    }
+
+    public function post($endpoint, array $args = []) {
+        return $this->handleResponse(
+            $this->http->post($this->makeUrl($endpoint), $args, $this->makeHeaders()));
     }
 }
