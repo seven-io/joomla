@@ -115,9 +115,10 @@ class Sms77apiModelMessage extends AdminModel {
     public function save($data) {
         $text = $data['text'];
         $to = array_key_exists('to', $data) ? [$data['to']] : [];
-        $config = $this->configHelper->byId($data['configuration']);
+        $apiKey = $this->configHelper->byId($data['configuration'])->api_key;
         $shopperGroupId = $this->_toNullableId('shopper_group_id', $data);
         $countryId = $this->_toNullableId('country_id', $data);
+        unset($data['configuration'], $data['shopper_group_id'], $data['country_id']);
         $sql = 'SELECT * FROM #__virtuemart_userinfos WHERE address_type = "BT" AND locked_by = 0';
 
         if ($shopperGroupId) {
@@ -143,12 +144,13 @@ class Sms77apiModelMessage extends AdminModel {
             return false;
         }
 
-        unset($data['configuration'], $data['shopper_group_id'], $data['country_id'],
-            $config->id, $config->updated, $config->published);
-
         return parent::save([
-            'config' => json_encode($config),
-            'response' => json_encode((new Sms77apiHelper($config->api_key))
+            'config' => json_encode([
+                'apiKey' => $apiKey,
+                'countryId' => $countryId,
+                'shopperGroupId' => $shopperGroupId,
+            ]),
+            'response' => json_encode((new Sms77apiHelper($apiKey))
                 ->sms(array_merge($data, compact('text', 'to')))),
         ]);
     }
