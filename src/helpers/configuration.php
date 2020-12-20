@@ -27,7 +27,9 @@ class ConfigurationHelper {
      * @since   1.0.0
      */
     public function addSubmenu($vName) {
-        HTMLHelper::_('sidebar.addEntry', Text::_('COM_SMS77API'), 'index.php?option=com_sms77api&view=configurations', $vName === 'configurations');
+        HTMLHelper::_('sidebar.addEntry', Text::_('COM_SMS77API'),
+            'index.php?option=com_sms77api&view=configurations',
+            $vName === 'configurations');
     }
 
     public function table() {
@@ -65,7 +67,8 @@ class ConfigurationHelper {
 
         $table = $this->table();
         $db = $table->getDbo();
-        $db->setQuery($db->getQuery(true)->select('*')->from(self::tableName));
+        $db->setQuery(
+            $db->getQuery(true)->select('*')->from(self::tableName));
 
         foreach ($db->loadObjectList() as $configuration) {
             $configuration->published = 0;
@@ -73,5 +76,9 @@ class ConfigurationHelper {
         }
 
         return true === array_unique($bools)[0];
+    }
+
+    public static function hasVirtueMart() {
+        return JComponentHelper::isEnabled('com_virtuemart');
     }
 }

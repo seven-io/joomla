@@ -7,7 +7,7 @@
     <authorUrl>http://sms77.io</authorUrl>
     <copyright>sms77 e.K.</copyright>
     <license>MIT; see LICENSE.txt</license>
-    <version>1.1</version>
+    <version>1.2</version>
     <description>COM_SMS77API_XML_DESCRIPTION</description>
 
     <!-- Scripts to run on installation -->

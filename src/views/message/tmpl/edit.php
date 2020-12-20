@@ -41,49 +41,79 @@ Factory::getDocument()->addScriptDeclaration(<<<JS
         });
 JS
 );
-$hasVirtueMart = JComponentHelper::isEnabled('com_virtuemart');
-$fields = ['text', 'configuration', 'to', 'from', 'foreign_id', 'label'];
-if ($hasVirtueMart) {
-    $fields[] = 'shopper_group_id';
-
-    if (!class_exists('VmConfig')) {
-        require JPATH_ADMINISTRATOR . '/components/com_virtuemart/helpers/config.php';
-    }
-
-    VmConfig::loadConfig();
-
-    $lang = JFactory::getLanguage();
-    $lang->load('com_virtuemart', JPATH_ADMINISTRATOR . '/components/com_virtuemart');
-    $lang->load('com_virtuemart_shoppers', JPATH_ROOT . '/components/com_virtuemart');
-}
 ?>
-<form action="<?php echo Route::_("index.php?option=com_sms77api&layout=edit&id={$this->message->id}") ?>"
-      method="post" name="adminForm" enctype="multipart/form-data" id="adminForm"
-      class="form-validate">
+<form
+        action="<?php echo Route::_("index.php?option=com_sms77api&layout=edit&id={$this->message->id}") ?>"
+        class="form-validate"
+        enctype="multipart/form-data"
+        id="adminForm"
+        method="post"
+        name="adminForm"
+>
     <input type="hidden" name="task" value=""/>
 
-    <?php
-    foreach ($fields as $field) {
-        echo $this->form->renderField($field);
-    }
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6">
+                <?php echo $this->form->renderField('configuration')
+                    . $this->form->renderField('text')
+                    . $this->form->renderField('to');
 
-    if ($hasVirtueMart) {
-        ?>
-        <div class="control-group">
-            <div class="control-label">
-                <label id="jform_country_id-lbl" for="jform_country_id">
-                    <?php echo VmText::_('COM_VIRTUEMART_COUNTRY') ?></label>
+                if (JComponentHelper::isEnabled('com_virtuemart')) {
+                    if (!class_exists('VmConfig')) {
+                        require JPATH_ADMINISTRATOR
+                            . '/components/com_virtuemart/helpers/config.php';
+                    }
+
+                    VmConfig::loadConfig();
+
+                    $lang = JFactory::getLanguage();
+                    $lang->load('com_virtuemart',
+                        JPATH_ADMINISTRATOR . '/components/com_virtuemart');
+                    $lang->load('com_virtuemart_shoppers',
+                        JPATH_ROOT . '/components/com_virtuemart');
+
+                    echo $this->form->renderField('shopper_group_id');
+                    ?>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label id="jform_country_id-lbl" for="jform_country_id">
+                                <?php echo VmText::_('COM_VIRTUEMART_COUNTRY') ?>
+                            </label>
+                        </div>
+
+                        <div class="controls">
+                            <?php echo ShopFunctionsF::renderCountryList(
+                                0,
+                                false, [],
+                                '',
+                                0,
+                                'jform_country_id',
+                                'jform[country_id]') ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+                echo $this->form->getInput('id') . HTMLHelper::_('form.token');
+                ?>
             </div>
 
-            <div class="controls">
-                <?php echo ShopFunctionsF::renderCountryList(
-                    0, false, [], '', 0, 'jform_country_id', 'jform[country_id]') ?>
+            <div class="span6">
+                <?php echo $this->form->renderField('delay')
+                    . $this->form->renderField('foreign_id')
+                    . $this->form->renderField('from')
+                    . $this->form->renderField('label')
+                    . $this->form->renderField('ttl')
+                    . $this->form->renderField('udh')
+
+                    . $this->form->renderField('debug')
+                    . $this->form->renderField('flash')
+                    . $this->form->renderField('no_reload')
+                    . $this->form->renderField('performance_tracking')
+                    . $this->form->renderField('unicode')
+                    . $this->form->renderField('utf8');
+                ?>
             </div>
         </div>
-        <?php
-    }
-
-    echo $this->form->getInput('id');
-    echo HTMLHelper::_('form.token');
-    ?>
+    </div>
 </form>

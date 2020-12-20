@@ -34,24 +34,119 @@
         />
 
         <field
+                default="SMS"
+                description="COM_SMS77API_FROM_DESC"
+                hint="COM_SMS77API_FROM_DESC"
                 label="COM_SMS77API_FROM"
                 name="from"
                 type="text"
         />
 
         <field
+                description="COM_SMS77API_FOREIGN_ID_DESC"
+                hint="COM_SMS77API_FOREIGN_ID_DESC"
                 label="COM_SMS77API_FOREIGN_ID"
+                maxlength="64"
                 name="foreign_id"
+                pattern="[A-Za-z0-9, .\-_@]{0,100}"
                 type="text"
         />
 
         <field
+                description="COM_SMS77API_LABEL_DESC"
+                hint="COM_SMS77API_LABEL_DESC"
                 label="COM_SMS77API_LABEL"
+                maxlength="100"
                 name="label"
+                pattern="[A-Za-z0-9, .\-_@]{0,100}"
                 type="text"
         />
 
-        <field name="country_id" type="text"/>
+        <field
+                description="COM_SMS77API_DELAY_DESC"
+                hint="COM_SMS77API_DELAY_DESC"
+                label="COM_SMS77API_DELAY"
+                name="delay"
+                type="text"
+        />
+
+        <field
+                description="COM_SMS77API_UDH_DESC"
+                hint="COM_SMS77API_UDH_DESC"
+                label="COM_SMS77API_UDH"
+                name="udh"
+                type="text"
+        />
+
+        <field
+                default="2880"
+                description="COM_SMS77API_TTL_DESC"
+                hint="COM_SMS77API_TTL_DESC"
+                label="COM_SMS77API_TTL"
+                min="1"
+                name="ttl"
+                step="1"
+                type="number"
+        />
+
+        <field
+                description="COM_SMS77API_PERFORMANCE_TRACKING_DESC"
+                hint="COM_SMS77API_PERFORMANCE_TRACKING_DESC"
+                label="COM_SMS77API_PERFORMANCE_TRACKING"
+                name="performance_tracking"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                description="COM_SMS77API_UTF8_DESC"
+                hint="COM_SMS77API_UTF8_DESC"
+                label="COM_SMS77API_UTF8"
+                name="utf8"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                description="COM_SMS77API_FLASH_DESC"
+                hint="COM_SMS77API_FLASH_DESC"
+                label="COM_SMS77API_FLASH"
+                name="flash"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                description="COM_SMS77API_UNICODE_DESC"
+                hint="COM_SMS77API_UNICODE_DESC"
+                label="COM_SMS77API_UNICODE"
+                name="unicode"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                description="COM_SMS77API_NO_RELOAD_DESC"
+                hint="COM_SMS77API_NO_RELOAD_DESC"
+                label="COM_SMS77API_NO_RELOAD"
+                name="no_reload"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                description="COM_SMS77API_DEBUG_DESC"
+                hint="COM_SMS77API_DEBUG_DESC"
+                label="COM_SMS77API_DEBUG"
+                name="debug"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                name="country_id"
+                type="text"
+        />
 
         <field
                 header="COM_VIRTUEMART_LIST_EMPTY_OPTION"
