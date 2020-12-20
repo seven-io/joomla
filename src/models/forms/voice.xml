@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="voice">
+        <field
+                name="id"
+                type="hidden"
+        />
+
+        <field
+                key_field="id"
+                label="COM_SMS77API_CHOOSE_CONFIG"
+                name="configuration"
+                query="SELECT id, api_key FROM #__sms77api_configurations"
+                required="true"
+                type="sql"
+                value_field="api_key"
+        />
+
+        <field
+                description="COM_SMS77API_TEXT_DESC"
+                hint="COM_SMS77API_TEXT_DESC"
+                label="COM_SMS77API_TEXT_LABEL"
+                name="text"
+                required="true"
+                type="textarea"
+        />
+
+        <field
+                description="COM_SMS77API_TO_DESC"
+                hint="COM_SMS77API_TO_DESC"
+                label="COM_SMS77API_TO_LABEL"
+                name="to"
+                type="text"
+        />
+
+        <field
+                default="SMS"
+                description="COM_SMS77API_FROM_DESC"
+                hint="COM_SMS77API_FROM_DESC"
+                label="COM_SMS77API_FROM"
+                name="from"
+                type="text"
+        />
+
+        <field
+                description="COM_SMS77API_XML_DESC"
+                hint="COM_SMS77API_XML_DESC"
+                label="COM_SMS77API_XML"
+                name="xml"
+                type="checkbox"
+                value="1"
+        />
+
+        <field
+                name="country_id"
+                type="text"
+        />
+
+        <field
+                header="COM_VIRTUEMART_LIST_EMPTY_OPTION"
+                key_field="virtuemart_shoppergroup_id"
+                label="COM_VIRTUEMART_SHOPPERGROUP"
+                name="shopper_group_id"
+                query="SELECT virtuemart_shoppergroup_id, shopper_group_name FROM #__virtuemart_shoppergroups WHERE published = 1"
+                translate="true"
+                type="sql"
+                value_field="shopper_group_name"
+        />
+    </fieldset>
+</form>

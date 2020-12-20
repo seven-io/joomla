@@ -7,19 +7,29 @@
  * @link       http://sms77.io
  */
 
-defined('_JEXEC') or die;
+namespace Sms77\Joomla\helpers;
 
 use Joomla\CMS\Http\Http;
 
+defined('_JEXEC') or die;
+
 /**
  * Sms77api helper.
- * @property Http http
- * @property  string apiKey
  * @package sms77api
  * @since    1.0.0
  */
 class Sms77apiHelper {
     const baseURL = 'https://gateway.sms77.io/api/';
+    /**
+     * @var Http
+     * @since 1.0.0
+     */
+    private $http;
+    /**
+     * @var string
+     * @since 1.0.0
+     */
+    private $apiKey;
 
     public function __construct($apiKey) {
         $this->apiKey = $apiKey;
@@ -33,9 +43,27 @@ class Sms77apiHelper {
     }
 
     public function sms(array $args) {
-        $res = $this->post('sms', array_merge($args, ['json' => 1]));
+        $res = json_decode(
+            $this->post('sms', array_merge($args, ['json' => 1])), true);
 
         return in_array($res['success'], ['100', '101']) ? $res : null;
+    }
+
+    public function voice(array $args) {
+        $res = $this->post('voice', $args);
+
+        if (null === $res) {
+            return null;
+        }
+
+        $lines = explode(PHP_EOL, $res);
+
+        return [
+            'code' => $lines[0],
+            'sms77_id' =>
+                array_key_exists(1, $lines) && '' !== $lines[1] ? $lines[1] : null,
+            'eur' => array_key_exists(2, $lines) ? $lines[2] : null,
+        ];
     }
 
     public function isValidApiKey() {
@@ -51,7 +79,7 @@ class Sms77apiHelper {
     }
 
     private function handleResponse($res) {
-        return 200 === $res->code ? json_decode($res->body, true) : null;
+        return 200 === $res->code ? trim($res->body) : null;
     }
 
     public function get($endpoint, array $args = []) {

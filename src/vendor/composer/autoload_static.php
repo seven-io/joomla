@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit180b5f6bc9c3f63756be585302a0a4ae
 {
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Sms77\\Joomla\\' => 13,
+        ),
         'C' => 
         array (
             'Composer\\Installers\\' => 20,
@@ -14,6 +18,10 @@ class ComposerStaticInit180b5f6bc9c3f63756be585302a0a4ae
     );
 
     public static $prefixDirsPsr4 = array (
+        'Sms77\\Joomla\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
+        ),
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',

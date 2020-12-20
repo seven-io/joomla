@@ -12,7 +12,7 @@ use Joomla\CMS\MVC\Controller\FormController;
 defined('_JEXEC') or die;
 
 /**
- * Configuration Controller.
+ * Message Controller.
  * @package sms77api
  * @since    1.0.0
  */

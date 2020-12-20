@@ -7,12 +7,14 @@
  * @link       http://sms77.io
  */
 
+namespace Sms77\Joomla\controllers;
+
 use Joomla\CMS\MVC\Controller\AdminController;
 
 defined('_JEXEC') or die;
 
 /**
- * Configurations Controller.
+ * Messages Controller.
  * @package sms77api
  * @since    1.0.0
  */

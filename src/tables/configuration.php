@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Table\Table;
+use Sms77\Joomla\helpers\ConfigurationHelper;
 
 class TableConfiguration extends Table {
     /**

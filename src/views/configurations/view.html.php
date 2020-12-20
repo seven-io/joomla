@@ -13,6 +13,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView;
 use Joomla\CMS\Pagination\Pagination;
 use Joomla\Registry\Registry;
+use Sms77\Joomla\helpers\ConfigurationHelper;
 
 defined('_JEXEC') or die;
 

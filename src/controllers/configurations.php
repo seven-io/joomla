@@ -7,6 +7,8 @@
  * @link       http://sms77.io
  */
 
+namespace Sms77\Joomla\controllers;
+
 use Joomla\CMS\MVC\Controller\AdminController;
 
 defined('_JEXEC') or die;

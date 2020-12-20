@@ -7,8 +7,11 @@
  * @link       http://sms77.io
  */
 
+namespace Sms77\Joomla\helpers;
+
 defined('_JEXEC') or die;
 
+use JComponentHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Table\Table;

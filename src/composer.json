@@ -5,6 +5,11 @@
         "sms",
         "joomla"
     ],
+    "autoload": {
+        "psr-4": {
+            "Sms77\\Joomla\\": ""
+        }
+    },
     "description": "Official Joomla! component for using the Sms77.io SMS Gateway.",
     "authors": [
         {
