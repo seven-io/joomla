@@ -27,6 +27,8 @@ class Sms77apiModelVoice extends AbstractMessage {
     public function save($data) {
         $arr = $data;
         $success = false;
+        $this->_saveConfig['text'] = $data['text'];
+        $this->_saveConfig['to'] = $data['to'];
 
         foreach ($this->getRecipients($arr) as $_to) {
             $success = parent::save(array_merge(
