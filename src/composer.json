@@ -3,27 +3,28 @@
     "homepage": "https://github.com/sms77io/joomla",
     "keywords": [
         "sms",
-        "joomla"
+        "joomla",
+        "virtuemart"
     ],
     "autoload": {
         "psr-4": {
             "Sms77\\Joomla\\": ""
         }
     },
-    "description": "Official Joomla! component for using the Sms77.io SMS Gateway.",
+    "description": "Official Joomla! component for using the sms77.io SMS Gateway.",
     "authors": [
         {
-            "name": "André Matthies",
             "email": "a.matthies@sms77.io",
-            "homepage": "http://www.sms77.io",
+            "homepage": "https://www.sms77.io",
+            "name": "André Matthies",
             "role": "Developer"
         }
     ],
     "support": {
+        "docs": "https://github.com/sms77io/joomla",
         "email": "support@sms77.io",
         "rss": "https://www.sms77.io/de/feed/",
-        "source": "https://github.com/sms77io/joomla",
-        "docs": "https://github.com/sms77io/joomla"
+        "source": "https://github.com/sms77io/joomla"
     },
     "type": "joomla-component",
     "license": "MIT",
