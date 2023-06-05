@@ -1,25 +1,25 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use Joomla\CMS\Http\Http;
 
 defined('_JEXEC') or die;
 
 /**
- * Sms77api helper.
- * @package sms77api
+ * Seven helper.
+ * @package seven
  * @since    1.0.0
  */
-class Sms77apiHelper {
-    const baseURL = 'https://gateway.sms77.io/api/';
+class SevenHelper {
+    const baseURL = 'https://gateway.seven.io/api/';
     /**
      * @var Http
      * @since 1.0.0
@@ -60,7 +60,7 @@ class Sms77apiHelper {
 
         return [
             'code' => $lines[0],
-            'sms77_id' =>
+            'seven_id' =>
                 array_key_exists(1, $lines) && '' !== $lines[1] ? $lines[1] : null,
             'eur' => array_key_exists(2, $lines) ? $lines[2] : null,
         ];

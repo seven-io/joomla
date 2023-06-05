@@ -1,13 +1,13 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 defined('_JEXEC') or die;
 
@@ -18,11 +18,11 @@ use Joomla\CMS\Table\Table;
 
 /**
  * Configuration helper.
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
 class ConfigurationHelper {
-    const tableName = '#__sms77api_configurations';
+    const tableName = '#__seven_configurations';
 
     /**
      * @param string $vName The name of the current view.
@@ -30,8 +30,8 @@ class ConfigurationHelper {
      * @since   1.0.0
      */
     public function addSubmenu($vName) {
-        HTMLHelper::_('sidebar.addEntry', Text::_('COM_SMS77API'),
-            'index.php?option=com_sms77api&view=configurations',
+        HTMLHelper::_('sidebar.addEntry', Text::_('COM_SEVEN'),
+            'index.php?option=com_seven&view=configurations',
             $vName === 'configurations');
     }
 
@@ -52,7 +52,7 @@ class ConfigurationHelper {
     public function publishActive(array &$data) {
         $apiKey = $data['api_key'];
 
-        $apiHelper = new Sms77apiHelper($apiKey);
+        $apiHelper = new SevenHelper($apiKey);
 
         if (!$apiHelper->isValidApiKey()) {
             throw new ApiKeyMismatchException();

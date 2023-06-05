@@ -1,10 +1,10 @@
 <?php
 /**
- * @package   sms77api
- * @author     sms77 e.K. <support@sms77.io>
- * @copyright  sms77 e.K.
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link     support@sms77.io
+ * @link       http://www.seven.io
  */
 
 defined('_JEXEC') or die;
@@ -28,7 +28,7 @@ Factory::getDocument()->addScriptDeclaration(<<<JS
 JS
 );
 ?>
-<form action="<?php echo Route::_('index.php?option=com_sms77api&layout=edit&id=' . (int)$this->configuration->id); ?>"
+<form action="<?php echo Route::_('index.php?option=com_seven&layout=edit&id=' . (int)$this->configuration->id); ?>"
       method="post" name="adminForm" enctype="multipart/form-data" id="adminForm"
       class="form-validate">
     <?php echo $this->form->renderField('api_key'); ?>

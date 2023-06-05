@@ -1,10 +1,10 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\MVC\Controller\FormController;
@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
 
 /**
  * Voice Controller.
- * @package sms77api
+ * @package seven
  * @since    1.3.0
  */
-class Sms77apiControllerVoice extends FormController {
+class SevenControllerVoice extends FormController {
 }

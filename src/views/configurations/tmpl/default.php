@@ -1,10 +1,10 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\Factory;
@@ -22,7 +22,7 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirection = $this->escape($this->state->get('list.direction'));
 $loggedInUser = Factory::getUser();
 ?>
-<form action="index.php?option=com_sms77api&view=configurations" method="post" name="adminForm"
+<form action="index.php?option=com_seven&view=configurations" method="post" name="adminForm"
       id="adminForm" class="form-validate form-horizontal">
     <div id="j-sidebar-container" class="span2">
         <?php echo $this->sidebar; ?>
@@ -43,7 +43,7 @@ $loggedInUser = Factory::getUser();
                         <?php echo HTMLHelper::_('searchtools.sort', 'JSTATUS', 'configurations.published', $listDirection, $listOrder); ?>
                     </th>
                     <th class="left">
-                        <?php echo HTMLHelper::_('searchtools.sort', 'COM_SMS77API_CONFIGURATION_API_KEY', 'configurations.id', $listDirection, $listOrder); ?>
+                        <?php echo HTMLHelper::_('searchtools.sort', 'COM_SEVEN_CONFIGURATION_API_KEY', 'configurations.id', $listDirection, $listOrder); ?>
                     </th>
                 </tr>
                 </thead>
@@ -57,7 +57,7 @@ $loggedInUser = Factory::getUser();
                 <tbody>
                 <?php
                 $canEdit = $this->canDo->get('core.edit');
-                $canChange = $loggedInUser->authorise('core.edit.state', 'com_sms77api');
+                $canChange = $loggedInUser->authorise('core.edit.state', 'com_seven');
 
                 foreach ($this->configurations as $i => $configuration) :
                     ?>
@@ -70,7 +70,7 @@ $loggedInUser = Factory::getUser();
                         <td>
                             <div class="name break-word">
                                 <?php if ($canEdit) : ?>
-                                    <a href="<?php echo Route::_('index.php?option=com_sms77api&task=configuration.edit&id=' . (int)$configuration->id); ?>">
+                                    <a href="<?php echo Route::_('index.php?option=com_seven&task=configuration.edit&id=' . (int)$configuration->id); ?>">
                                         <?php echo $this->escape($configuration->api_key); ?></a>
                                 <?php else : ?>
                                     <?php echo $this->escape($configuration->api_key); ?>

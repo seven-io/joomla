@@ -1,13 +1,13 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use JFactory;
 use Joomla\CMS\Factory;
@@ -21,7 +21,7 @@ defined('_JEXEC') or die;
 
 /**
  * View Edit helper.
- * @package sms77api
+ * @package seven
  * @since    1.3.0
  */
 class ViewEditHelper {
@@ -100,7 +100,7 @@ JS
         HTMLHelper::_('behavior.keepalive');
         HTMLHelper::_('formbehavior.chosen');
 
-        $action = Route::_("index.php?option=com_sms77api&layout=edit&id={$id}");
+        $action = Route::_("index.php?option=com_seven&layout=edit&id={$id}");
         ?>
         <form
                 action="<?php echo $action; ?>"

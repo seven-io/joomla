@@ -1,10 +1,10 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\Application\CMSApplication;
@@ -16,13 +16,13 @@ defined('_JEXEC') or die;
 
 /**
  * Configuration
- * @property Sms77apiHelper apiHelper
+ * @property SevenHelper apiHelper
  * @property ConfigurationHelper configHelper
  * @property CMSApplication|null app
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
-class Sms77apiModelConfiguration extends AdminModel {
+class SevenModelConfiguration extends AdminModel {
     public function __construct($config = []) {
         parent::__construct($config);
 
@@ -35,7 +35,7 @@ class Sms77apiModelConfiguration extends AdminModel {
      * @var   string  The prefix to use with controller messages.
      * @since 1.0.0
      */
-    protected $text_prefix = 'COM_SMS77API';
+    protected $text_prefix = 'COM_SEVEN';
 
     /**
      * Method to get the record form.
@@ -45,7 +45,7 @@ class Sms77apiModelConfiguration extends AdminModel {
      * @since   1.0.0
      */
     public function getForm($data = [], $loadData = true) {
-        $form = $this->loadForm('com_sms77api.configuration', 'configuration', ['control' => 'jform', 'load_data' => $loadData]);
+        $form = $this->loadForm('com_seven.configuration', 'configuration', ['control' => 'jform', 'load_data' => $loadData]);
 
         if (empty($form)) {
             return false;
@@ -62,7 +62,7 @@ class Sms77apiModelConfiguration extends AdminModel {
      */
     protected function loadFormData() {
         // Check the session for previously entered form data.
-        $data = Factory::getApplication()->getUserState('com_sms77api.edit.configuration.data', []);
+        $data = Factory::getApplication()->getUserState('com_seven.edit.configuration.data', []);
 
         if (empty($data)) {
             $data = $this->getItem();

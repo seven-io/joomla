@@ -1,14 +1,14 @@
 <?php
 /**
- * @package   sms77api
- * @author     sms77 e.K. <support@sms77.io>
- * @copyright  sms77 e.K.
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link     support@sms77.io
+ * @link       http://www.seven.io
  * @since    1.3.0
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use Exception;
 use Joomla\CMS\Factory;
@@ -91,7 +91,7 @@ abstract class AbstractMessageHtmlView extends HtmlView {
     private function toolbar() {
         Factory::getApplication()->input->set('hidemainmenu', true);
 
-        $canDo = ContentHelper::getActions('com_sms77api');
+        $canDo = ContentHelper::getActions('com_seven');
         $isNew = 0 === (int)$this->_entity->id;
 
         JToolBarHelper::title(Text::_($this->_title));

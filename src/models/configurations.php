@@ -1,10 +1,10 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\MVC\Model\ListModel;
@@ -13,10 +13,10 @@ defined('_JEXEC') or die;
 
 /**
  * Configurations
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
-class Sms77apiModelConfigurations extends ListModel {
+class SevenModelConfigurations extends ListModel {
     /**
      * Constructor.
      * @param array $config An optional associative array of configuration settings.
@@ -68,7 +68,7 @@ class Sms77apiModelConfigurations extends ListModel {
                 'configurations.updated',
                 'configurations.published',
             ]))
-            ->from($db->quoteName('#__sms77api_configurations', 'configurations'));
+            ->from($db->quoteName('#__seven_configurations', 'configurations'));
 
         $search = $this->getState('filter.search');
         if ($search) {

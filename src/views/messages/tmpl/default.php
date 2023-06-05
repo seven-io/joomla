@@ -1,10 +1,10 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\HTML\HTMLHelper;
@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 HTMLHelper::_('bootstrap.tooltip');
 HTMLHelper::_('formbehavior.chosen');
 ?>
-<form action="index.php?option=com_sms77api&view=messages" method="post" name="adminForm"
+<form action="index.php?option=com_seven&view=messages" method="post" name="adminForm"
       id="adminForm" class="form-validate form-horizontal">
     <div id="j-sidebar-container" class="span2">
         <?php echo $this->sidebar; ?>
@@ -34,16 +34,16 @@ HTMLHelper::_('formbehavior.chosen');
                 <thead>
                 <tr>
                     <th class="left">
-                        <?php echo Text::_('COM_SMS77API_ID'); ?>
+                        <?php echo Text::_('COM_SEVEN_ID'); ?>
                     </th>
                     <th class="left">
-                        <?php echo Text::_('COM_SMS77API_CREATED'); ?>
+                        <?php echo Text::_('COM_SEVEN_CREATED'); ?>
                     </th>
                     <th class="left">
-                        <?php echo Text::_('COM_SMS77API_RESPONSE'); ?>
+                        <?php echo Text::_('COM_SEVEN_RESPONSE'); ?>
                     </th>
                     <th class="left">
-                        <?php echo Text::_('COM_SMS77API_CONFIGURATION'); ?>
+                        <?php echo Text::_('COM_SEVEN_CONFIGURATION'); ?>
                     </th>
                 </tr>
                 </thead>

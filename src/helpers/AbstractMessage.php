@@ -1,13 +1,13 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use Exception;
 use JFactory;
@@ -19,12 +19,12 @@ use Joomla\CMS\MVC\Model\AdminModel;
 defined('_JEXEC') or die;
 
 /**
- * @package sms77api
+ * @package seven
  * @since    1.3.0
  */
 abstract class AbstractMessage extends AdminModel {
     /**
-     * @var Sms77apiHelper
+     * @var SevenHelper
      * @since 1.3.0
      */
     protected $_apiHelper;
@@ -65,7 +65,7 @@ abstract class AbstractMessage extends AdminModel {
      * @var   string  Prefix to use with controller messages
      * @since 1.3.0
      */
-    protected $text_prefix = 'COM_SMS77API';
+    protected $text_prefix = 'COM_SEVEN';
 
     /**
      * Method to get the record form.
@@ -76,7 +76,7 @@ abstract class AbstractMessage extends AdminModel {
      */
     public function getForm($data = [], $loadData = true) {
         $form = $this->loadForm(
-            "com_sms77api.$this->_model",
+            "com_seven.$this->_model",
             $this->_model,
             [
                 'control' => 'jform',
@@ -95,7 +95,7 @@ abstract class AbstractMessage extends AdminModel {
     protected function loadFormData() {
         // Check the session for previously entered form data.
         $data = Factory::getApplication()
-            ->getUserState("com_sms77api.edit.$this->_model.data", []);
+            ->getUserState("com_seven.edit.$this->_model.data", []);
 
         return empty($data) ? $this->getItem() : $data;
     }
@@ -162,14 +162,14 @@ abstract class AbstractMessage extends AdminModel {
         $to = array_key_exists('to', $data) ? [$data['to']] : [];
         $this->_saveConfig['apiKey'] =
             $this->configHelper->byId($data['configuration'])->api_key;
-        $this->_apiHelper = new Sms77apiHelper($this->_saveConfig['apiKey']);
+        $this->_apiHelper = new SevenHelper($this->_saveConfig['apiKey']);
         unset($data['configuration'], $data['tags'], $data['id']);
 
         $this->_handleVirtueMart($to, $data);
 
         if (empty($to)) {
             JFactory::getApplication()
-                ->enqueueMessage('COM_SMS77API_NO_RECIPIENTS_MATCH', 'error');
+                ->enqueueMessage('COM_SEVEN_NO_RECIPIENTS_MATCH', 'error');
         }
 
         return $to;

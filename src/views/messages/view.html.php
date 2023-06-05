@@ -1,22 +1,22 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-use Sms77\Joomla\helpers\AbstractMessagesHtml;
+use Seven\Joomla\helpers\AbstractMessagesHtml;
 
 defined('_JEXEC') or die;
 
 /**
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
-class sms77apiViewmessages extends AbstractMessagesHtml {
+class sevenViewmessages extends AbstractMessagesHtml {
     public function __construct($config = []) {
-        parent::__construct($config, 'COM_SMS77API_MESSAGES', 'message');
+        parent::__construct($config, 'COM_SEVEN_MESSAGES', 'message');
     }
 }

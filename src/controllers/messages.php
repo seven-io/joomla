@@ -1,13 +1,13 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\controllers;
+namespace Seven\Joomla\controllers;
 
 use Joomla\CMS\MVC\Controller\AdminController;
 
@@ -15,16 +15,16 @@ defined('_JEXEC') or die;
 
 /**
  * Messages Controller.
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
-class Sms77apiControllerMessages extends AdminController {
+class SevenControllerMessages extends AdminController {
     /**
      * The prefix to use with controller messages.
      * @var    string
      * @since  1.0.0
      */
-    protected $text_prefix = 'com_sms77api_message';
+    protected $text_prefix = 'com_seven_message';
 
     /**
      * Method to get a model object, loading it if required.
@@ -34,7 +34,7 @@ class Sms77apiControllerMessages extends AdminController {
      * @return  \JModelLegacy  The model.
      * @since   1.0.0
      */
-    public function getModel($name = 'Message', $prefix = 'Sms77apiModel', $config = ['ignore_request' => true]) {
+    public function getModel($name = 'Message', $prefix = 'SevenModel', $config = ['ignore_request' => true]) {
         return parent::getModel($name, $prefix, $config);
     }
 }

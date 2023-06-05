@@ -1,13 +1,13 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use JHtmlSidebar;
 use Joomla\CMS\Factory;
@@ -21,7 +21,7 @@ use JToolbarHelper;
 defined('_JEXEC') or die;
 
 /**
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
 abstract class AbstractMessagesHtml extends HtmlView {
@@ -104,8 +104,8 @@ abstract class AbstractMessagesHtml extends HtmlView {
             JToolbarHelper::addNew("$this->_modelName.add");
         }
 
-        if (Factory::getUser()->authorise('core.admin', 'com_sms77api')) {
-            JToolBarHelper::preferences('com_sms77api'); // options button
+        if (Factory::getUser()->authorise('core.admin', 'com_seven')) {
+            JToolBarHelper::preferences('com_seven'); // options button
         }
     }
 
@@ -125,7 +125,7 @@ abstract class AbstractMessagesHtml extends HtmlView {
         $this->pagination = $model->getPagination();
         $this->filterForm = $model->getFilterForm();
         $this->activeFilters = $model->getActiveFilters();
-        $this->canDo = ContentHelper::getActions('com_sms77api');
+        $this->canDo = ContentHelper::getActions('com_seven');
 
         $this->toolbar();
 

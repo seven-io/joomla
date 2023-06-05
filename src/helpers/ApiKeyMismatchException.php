@@ -1,18 +1,18 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use Exception;
 
 class ApiKeyMismatchException extends Exception {
-    public function __construct($message = 'COM_SMS77API_API_KEY_MISMATCH',
+    public function __construct($message = 'COM_SEVEN_API_KEY_MISMATCH',
                                 $code = 0, Exception $previous = null) {
 
         parent::__construct($message, $code, $previous);

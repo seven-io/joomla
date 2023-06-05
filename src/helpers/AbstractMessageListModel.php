@@ -1,14 +1,14 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  * @since    1.0.0
  */
 
-namespace Sms77\Joomla\helpers;
+namespace Seven\Joomla\helpers;
 
 use JDatabaseQuery;
 use Joomla\CMS\MVC\Model\ListModel;
@@ -30,7 +30,7 @@ abstract class AbstractMessageListModel extends ListModel {
 
     private $_defaultFilterFields;
 
-    private $_tablePrefix = '#__sms77api_';
+    private $_tablePrefix = '#__seven_';
 
     /**
      * @param array $config An optional associative array of configuration settings.

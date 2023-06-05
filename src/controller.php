@@ -1,10 +1,10 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\MVC\Controller\BaseController;
@@ -12,11 +12,11 @@ use Joomla\CMS\MVC\Controller\BaseController;
 defined('_JEXEC') or die;
 
 /**
- * Sms77api Controller.
- * @package sms77api
+ * Seven Controller.
+ * @package seven
  * @since    1.0.0
  */
-class Sms77apiController extends BaseController {
+class SevenController extends BaseController {
     /**
      * The default view for the display method.
      * @var    string

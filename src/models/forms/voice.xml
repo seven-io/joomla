@@ -8,44 +8,44 @@
 
         <field
                 key_field="id"
-                label="COM_SMS77API_CHOOSE_CONFIG"
+                label="COM_SEVEN_CHOOSE_CONFIG"
                 name="configuration"
-                query="SELECT id, api_key FROM #__sms77api_configurations"
+                query="SELECT id, api_key FROM #__seven_configurations"
                 required="true"
                 type="sql"
                 value_field="api_key"
         />
 
         <field
-                description="COM_SMS77API_TEXT_DESC"
-                hint="COM_SMS77API_TEXT_DESC"
-                label="COM_SMS77API_TEXT_LABEL"
+                description="COM_SEVEN_TEXT_DESC"
+                hint="COM_SEVEN_TEXT_DESC"
+                label="COM_SEVEN_TEXT_LABEL"
                 name="text"
                 required="true"
                 type="textarea"
         />
 
         <field
-                description="COM_SMS77API_TO_DESC"
-                hint="COM_SMS77API_TO_DESC"
-                label="COM_SMS77API_TO_LABEL"
+                description="COM_SEVEN_TO_DESC"
+                hint="COM_SEVEN_TO_DESC"
+                label="COM_SEVEN_TO_LABEL"
                 name="to"
                 type="text"
         />
 
         <field
                 default="SMS"
-                description="COM_SMS77API_FROM_DESC"
-                hint="COM_SMS77API_FROM_DESC"
-                label="COM_SMS77API_FROM"
+                description="COM_SEVEN_FROM_DESC"
+                hint="COM_SEVEN_FROM_DESC"
+                label="COM_SEVEN_FROM"
                 name="from"
                 type="text"
         />
 
         <field
-                description="COM_SMS77API_XML_DESC"
-                hint="COM_SMS77API_XML_DESC"
-                label="COM_SMS77API_XML"
+                description="COM_SEVEN_XML_DESC"
+                hint="COM_SEVEN_XML_DESC"
+                label="COM_SEVEN_XML"
                 name="xml"
                 type="checkbox"
                 value="1"

@@ -1,10 +1,10 @@
 <?php
 /**
- * @package   sms77api
- * @author     sms77 e.K. <support@sms77.io>
- * @copyright  sms77 e.K.
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link     support@sms77.io
+ * @link       http://www.seven.io
  */
 
 use Joomla\CMS\Factory;
@@ -18,10 +18,10 @@ defined('_JEXEC') or die;
 
 /**
  * Configuration view.
- * @package sms77api
+ * @package seven
  * @since    1.0.0
  */
-class Sms77apiViewConfiguration extends HtmlView {
+class SevenViewConfiguration extends HtmlView {
     /**
      * Form with settings
      * @var    Form
@@ -52,7 +52,7 @@ class Sms77apiViewConfiguration extends HtmlView {
      * @since   1.0.0
      */
     public function display($tpl = null) {
-        /** @var Sms77apiModelConfiguration $model */
+        /** @var SevenModelConfiguration $model */
         $model = $this->getModel();
         $this->form = $model->getForm();
         $this->configuration = $model->getItem();
@@ -72,10 +72,10 @@ class Sms77apiViewConfiguration extends HtmlView {
     private function toolbar() {
         Factory::getApplication()->input->set('hidemainmenu', true);
 
-        $canDo = ContentHelper::getActions('com_sms77api');
+        $canDo = ContentHelper::getActions('com_seven');
         $isNew = 0 === (int)$this->configuration->id;
 
-        JToolBarHelper::title(Text::_('COM_SMS77API_TITLE_CONFIGURATION'));
+        JToolBarHelper::title(Text::_('COM_SEVEN_TITLE_CONFIGURATION'));
 
         // If not checked out, can save the configuration.
         if ($canDo->get('core.edit') || ($canDo->get('core.create'))) {

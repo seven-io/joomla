@@ -8,44 +8,44 @@
 
         <field
                 key_field="id"
-                label="COM_SMS77API_CHOOSE_CONFIG"
+                label="COM_SEVEN_CHOOSE_CONFIG"
                 name="configuration"
-                query="SELECT id, api_key FROM #__sms77api_configurations"
+                query="SELECT id, api_key FROM #__seven_configurations"
                 required="true"
                 type="sql"
                 value_field="api_key"
         />
 
         <field
-                description="COM_SMS77API_TEXT_DESC"
-                hint="COM_SMS77API_TEXT_DESC"
-                label="COM_SMS77API_TEXT_LABEL"
+                description="COM_SEVEN_TEXT_DESC"
+                hint="COM_SEVEN_TEXT_DESC"
+                label="COM_SEVEN_TEXT_LABEL"
                 name="text"
                 required="true"
                 type="textarea"
         />
 
         <field
-                description="COM_SMS77API_TO_DESC"
-                hint="COM_SMS77API_TO_DESC"
-                label="COM_SMS77API_TO_LABEL"
+                description="COM_SEVEN_TO_DESC"
+                hint="COM_SEVEN_TO_DESC"
+                label="COM_SEVEN_TO_LABEL"
                 name="to"
                 type="text"
         />
 
         <field
                 default="SMS"
-                description="COM_SMS77API_FROM_DESC"
-                hint="COM_SMS77API_FROM_DESC"
-                label="COM_SMS77API_FROM"
+                description="COM_SEVEN_FROM_DESC"
+                hint="COM_SEVEN_FROM_DESC"
+                label="COM_SEVEN_FROM"
                 name="from"
                 type="text"
         />
 
         <field
-                description="COM_SMS77API_FOREIGN_ID_DESC"
-                hint="COM_SMS77API_FOREIGN_ID_DESC"
-                label="COM_SMS77API_FOREIGN_ID"
+                description="COM_SEVEN_FOREIGN_ID_DESC"
+                hint="COM_SEVEN_FOREIGN_ID_DESC"
+                label="COM_SEVEN_FOREIGN_ID"
                 maxlength="64"
                 name="foreign_id"
                 pattern="[A-Za-z0-9, .\-_@]{0,100}"
@@ -53,9 +53,9 @@
         />
 
         <field
-                description="COM_SMS77API_LABEL_DESC"
-                hint="COM_SMS77API_LABEL_DESC"
-                label="COM_SMS77API_LABEL"
+                description="COM_SEVEN_LABEL_DESC"
+                hint="COM_SEVEN_LABEL_DESC"
+                label="COM_SEVEN_LABEL"
                 maxlength="100"
                 name="label"
                 pattern="[A-Za-z0-9, .\-_@]{0,100}"
@@ -63,26 +63,26 @@
         />
 
         <field
-                description="COM_SMS77API_DELAY_DESC"
-                hint="COM_SMS77API_DELAY_DESC"
-                label="COM_SMS77API_DELAY"
+                description="COM_SEVEN_DELAY_DESC"
+                hint="COM_SEVEN_DELAY_DESC"
+                label="COM_SEVEN_DELAY"
                 name="delay"
                 type="text"
         />
 
         <field
-                description="COM_SMS77API_UDH_DESC"
-                hint="COM_SMS77API_UDH_DESC"
-                label="COM_SMS77API_UDH"
+                description="COM_SEVEN_UDH_DESC"
+                hint="COM_SEVEN_UDH_DESC"
+                label="COM_SEVEN_UDH"
                 name="udh"
                 type="text"
         />
 
         <field
                 default="2880"
-                description="COM_SMS77API_TTL_DESC"
-                hint="COM_SMS77API_TTL_DESC"
-                label="COM_SMS77API_TTL"
+                description="COM_SEVEN_TTL_DESC"
+                hint="COM_SEVEN_TTL_DESC"
+                label="COM_SEVEN_TTL"
                 min="1"
                 name="ttl"
                 step="1"
@@ -90,54 +90,54 @@
         />
 
         <field
-                description="COM_SMS77API_PERFORMANCE_TRACKING_DESC"
-                hint="COM_SMS77API_PERFORMANCE_TRACKING_DESC"
-                label="COM_SMS77API_PERFORMANCE_TRACKING"
+                description="COM_SEVEN_PERFORMANCE_TRACKING_DESC"
+                hint="COM_SEVEN_PERFORMANCE_TRACKING_DESC"
+                label="COM_SEVEN_PERFORMANCE_TRACKING"
                 name="performance_tracking"
                 type="checkbox"
                 value="1"
         />
 
         <field
-                description="COM_SMS77API_UTF8_DESC"
-                hint="COM_SMS77API_UTF8_DESC"
-                label="COM_SMS77API_UTF8"
+                description="COM_SEVEN_UTF8_DESC"
+                hint="COM_SEVEN_UTF8_DESC"
+                label="COM_SEVEN_UTF8"
                 name="utf8"
                 type="checkbox"
                 value="1"
         />
 
         <field
-                description="COM_SMS77API_FLASH_DESC"
-                hint="COM_SMS77API_FLASH_DESC"
-                label="COM_SMS77API_FLASH"
+                description="COM_SEVEN_FLASH_DESC"
+                hint="COM_SEVEN_FLASH_DESC"
+                label="COM_SEVEN_FLASH"
                 name="flash"
                 type="checkbox"
                 value="1"
         />
 
         <field
-                description="COM_SMS77API_UNICODE_DESC"
-                hint="COM_SMS77API_UNICODE_DESC"
-                label="COM_SMS77API_UNICODE"
+                description="COM_SEVEN_UNICODE_DESC"
+                hint="COM_SEVEN_UNICODE_DESC"
+                label="COM_SEVEN_UNICODE"
                 name="unicode"
                 type="checkbox"
                 value="1"
         />
 
         <field
-                description="COM_SMS77API_NO_RELOAD_DESC"
-                hint="COM_SMS77API_NO_RELOAD_DESC"
-                label="COM_SMS77API_NO_RELOAD"
+                description="COM_SEVEN_NO_RELOAD_DESC"
+                hint="COM_SEVEN_NO_RELOAD_DESC"
+                label="COM_SEVEN_NO_RELOAD"
                 name="no_reload"
                 type="checkbox"
                 value="1"
         />
 
         <field
-                description="COM_SMS77API_DEBUG_DESC"
-                hint="COM_SMS77API_DEBUG_DESC"
-                label="COM_SMS77API_DEBUG"
+                description="COM_SEVEN_DEBUG_DESC"
+                hint="COM_SEVEN_DEBUG_DESC"
+                label="COM_SEVEN_DEBUG"
                 name="debug"
                 type="checkbox"
                 value="1"

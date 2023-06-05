@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `#__sms77api_configurations`;
+DROP TABLE IF EXISTS `#__seven_configurations`;
 
-DROP TABLE IF EXISTS `#__sms77api_messages`;
+DROP TABLE IF EXISTS `#__seven_messages`;
 
-DROP TABLE IF EXISTS `#__sms77api_voice`;
+DROP TABLE IF EXISTS `#__seven_voice`;

@@ -1,18 +1,18 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  * @since    1.0.0
  */
 
-use Sms77\Joomla\helpers\AbstractMessageListModel;
+use Seven\Joomla\helpers\AbstractMessageListModel;
 
 defined('_JEXEC') or die;
 
-class Sms77apiModelVoices extends AbstractMessageListModel {
+class SevenModelVoices extends AbstractMessageListModel {
     /**
      * @inheritDoc
      * @since   1.3.0
@@ -21,8 +21,8 @@ class Sms77apiModelVoices extends AbstractMessageListModel {
         parent::__construct($config, [
             'code',
             'voices.code',
-            'sms77_id',
-            'voices.sms77_id',
+            'seven_id',
+            'voices.seven_id',
             'eur',
             'voices.eur',
         ], 'voices');

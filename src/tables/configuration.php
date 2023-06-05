@@ -1,17 +1,17 @@
 <?php
 /**
- * @package sms77api
- * @author sms77 e.K. <support@sms77.io>
- * @copyright  2020-present
+ * @package seven
+ * @author seven communications GmbH & Co. KG <support@seven.io>
+ * @copyright  2020-present seven communications GmbH & Co. KG
  * @license    MIT; see LICENSE.txt
- * @link       http://sms77.io
+ * @link       http://www.seven.io
  * @since  1.0.0
  */
 
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Table\Table;
-use Sms77\Joomla\helpers\ConfigurationHelper;
+use Seven\Joomla\helpers\ConfigurationHelper;
 
 class TableConfiguration extends Table {
     /**
@@ -19,7 +19,7 @@ class TableConfiguration extends Table {
      * @since   1.0.0
      */
     public function __construct(JDatabaseDriver $db) {
-        parent::__construct('#__sms77api_configurations', 'id', $db);
+        parent::__construct('#__seven_configurations', 'id', $db);
     }
 
     public function publish($pks = null, $state = 1, $userId = 0) {

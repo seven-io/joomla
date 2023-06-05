@@ -9,9 +9,9 @@
         <field
                 name="api_key"
                 type="text"
-                label="COM_SMS77API_API_KEY_LABEL"
-                description="COM_SMS77API_API_KEY_DESC"
-                hint="COM_SMS77API_API_KEY_DESC"
+                label="COM_SEVEN_API_KEY_LABEL"
+                description="COM_SEVEN_API_KEY_DESC"
+                hint="COM_SEVEN_API_KEY_DESC"
                 size="40"
         />
 

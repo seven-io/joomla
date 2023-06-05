@@ -1,6 +1,6 @@
 {
-    "name": "sms77/joomla",
-    "homepage": "https://github.com/sms77io/joomla",
+    "name": "seven.io/joomla",
+    "homepage": "https://github.com/seven-io/joomla",
     "keywords": [
         "sms",
         "joomla",
@@ -8,23 +8,23 @@
     ],
     "autoload": {
         "psr-4": {
-            "Sms77\\Joomla\\": ""
+            "Seven\\Joomla\\": ""
         }
     },
-    "description": "Official Joomla! component for using the sms77.io SMS Gateway.",
+    "description": "Official Joomla! component for using the seven.io SMS Gateway.",
     "authors": [
         {
-            "email": "a.matthies@sms77.io",
-            "homepage": "https://www.sms77.io",
+            "email": "a.matthies@seven.io",
+            "homepage": "https://www.seven.io",
             "name": "André Matthies",
             "role": "Developer"
         }
     ],
     "support": {
-        "docs": "https://github.com/sms77io/joomla",
-        "email": "support@sms77.io",
-        "rss": "https://www.sms77.io/de/feed/",
-        "source": "https://github.com/sms77io/joomla"
+        "docs": "https://github.com/seven-io/joomla",
+        "email": "support@seven.io",
+        "rss": "https://www.seven.io/en/feed/",
+        "source": "https://github.com/seven-io/joomla"
     },
     "type": "joomla-component",
     "license": "MIT",

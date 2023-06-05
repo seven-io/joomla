@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <extension type="component" version="3.8" method="upgrade">
-    <name>COM_SMS77API</name>
-    <creationDate>June 2020</creationDate>
-    <author>sms77 e.K.</author>
-    <authorEmail>support@sms77.io</authorEmail>
-    <authorUrl>https://www.sms77.io</authorUrl>
-    <copyright>sms77 e.K.</copyright>
+    <name>COM_SEVEN</name>
+    <creationDate>June 2023</creationDate>
+    <author>seven communications GmbH &amp; Co. KG</author>
+    <authorEmail>support@seven.io</authorEmail>
+    <authorUrl>https://www.seven.io</authorUrl>
+    <copyright>seven communications GmbH &amp; Co. KG</copyright>
     <license>MIT; see LICENSE.txt</license>
-    <version>1.4</version>
-    <description>COM_SMS77API_XML_DESCRIPTION</description>
+    <version>2.0</version>
+    <description>COM_SEVEN_XML_DESCRIPTION</description>
 
     <install>
         <sql>
@@ -29,22 +29,22 @@
     </update>
 
     <administration>
-        <menu view="configuration">COM_SMS77API</menu>
+        <menu view="configuration">COM_SEVEN</menu>
         <submenu>
             <!-- All & must be escaped to &amp; for the file to be valid XML and be parsed by the installer -->
-            <menu link="option=com_sms77api">COM_SMS77API_CONFIGURATIONS</menu>
-            <menu link="option=com_sms77api&amp;view=messages">COM_SMS77API_MESSAGES</menu>
-            <menu link="option=com_sms77api&amp;view=voices">COM_SMS77API_VOICE_MESSAGES</menu>
+            <menu link="option=com_seven">COM_SEVEN_CONFIGURATIONS</menu>
+            <menu link="option=com_seven&amp;view=messages">COM_SEVEN_MESSAGES</menu>
+            <menu link="option=com_seven&amp;view=voices">COM_SEVEN_VOICE_MESSAGES</menu>
         </submenu>
 
-        <files folder="administrator/components/com_sms77api">
+        <files folder="administrator/components/com_seven">
             <filename>access.xml</filename>
             <filename>composer.json</filename>
             <filename>composer.lock</filename>
             <filename>config.xml</filename>
             <filename>controller.php</filename>
             <filename>LICENSE.txt</filename>
-            <filename>sms77api.php</filename>
+            <filename>seven.php</filename>
             <folder>controllers</folder>
             <folder>exceptions</folder>
             <folder>helpers</folder>
