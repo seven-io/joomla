@@ -29,7 +29,6 @@ new ViewEditHelper(
     . $this->form->renderField('ttl')
     . $this->form->renderField('udh')
 
-    . $this->form->renderField('debug')
     . $this->form->renderField('flash')
     . $this->form->renderField('no_reload')
     . $this->form->renderField('performance_tracking')

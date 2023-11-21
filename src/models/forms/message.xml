@@ -135,15 +135,6 @@
         />
 
         <field
-                description="COM_SEVEN_DEBUG_DESC"
-                hint="COM_SEVEN_DEBUG_DESC"
-                label="COM_SEVEN_DEBUG"
-                name="debug"
-                type="checkbox"
-                value="1"
-        />
-
-        <field
                 name="country_id"
                 type="text"
         />
