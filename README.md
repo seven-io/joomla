@@ -1,4 +1,5 @@
-![](https://www.seven.io/wp-content/uploads/Logo.svg "seven Logo")
+<img src="https://www.seven.io/wp-content/uploads/Logo.svg" width="250" />
+
 
 # Official Joomla 3.9+ & VirtueMart 3.8+ plugin for seven.io
 
