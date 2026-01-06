@@ -10,7 +10,7 @@ You need an API key from [seven.io](https://www.seven.io).
 
 ### Installation
 
-1. Download the [latest release](https://github.com/seven-io/joomla/releases/latest)
+1. Download the [v1.3 release](https://github.com/seven-io/joomla/releases/tag/v1.3)
 2. Log in to your joomla administrator
 3. Navigate to ```Extensions->Manage->Install->Upload Package File```
 4. Use drag&drop to move the downloaded ZIP into the upload area
