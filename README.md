@@ -39,7 +39,7 @@
 | PHP | 8.1+ |
 | VirtueMart | 4.x *(optional, for customer selection)* |
 
-> **Looking for Joomla 3 support?** The legacy version is available in the [`joomla3` branch](https://github.com/seven-io/joomla/tree/joomla3) or as [v2.0 release](https://github.com/seven-io/joomla/releases/tag/v2.0).
+> **Looking for Joomla 3 support?** The legacy version is available in the [`legacy/joomla3` branch](https://github.com/seven-io/joomla/tree/legacy/joomla3) or as [v1.3 release](https://github.com/seven-io/joomla/releases/tag/v1.3).
 
 ---
 
