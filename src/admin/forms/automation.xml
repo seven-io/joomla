@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="details">
+        <field name="id" type="hidden" />
+
+        <field
+            name="title"
+            type="text"
+            label="COM_SEVEN_AUTOMATION_TITLE"
+            description="COM_SEVEN_AUTOMATION_TITLE_DESC"
+            required="true"
+            size="50"
+        />
+
+        <field
+            name="trigger_type"
+            type="list"
+            label="COM_SEVEN_AUTOMATION_TRIGGER"
+            description="COM_SEVEN_AUTOMATION_TRIGGER_DESC"
+            required="true"
+            class="automation-trigger-select"
+        >
+            <option value="">COM_SEVEN_SELECT_TRIGGER</option>
+            <option value="vm_order_confirmed">COM_SEVEN_TRIGGER_VM_ORDER_CONFIRMED</option>
+            <option value="vm_order_status_change">COM_SEVEN_TRIGGER_VM_ORDER_STATUS</option>
+            <option value="vm_order_shipped">COM_SEVEN_TRIGGER_VM_ORDER_SHIPPED</option>
+            <option value="vm_order_cancelled">COM_SEVEN_TRIGGER_VM_ORDER_CANCELLED</option>
+            <option value="user_registration">COM_SEVEN_TRIGGER_USER_REGISTRATION</option>
+            <option value="content_save">COM_SEVEN_TRIGGER_CONTENT_SAVE</option>
+        </field>
+
+        <field
+            name="enabled"
+            type="list"
+            label="JSTATUS"
+            description="COM_SEVEN_AUTOMATION_ENABLED_DESC"
+            default="0"
+        >
+            <option value="0">JDISABLED</option>
+            <option value="1">JENABLED</option>
+        </field>
+
+        <field
+            name="template"
+            type="textarea"
+            label="COM_SEVEN_AUTOMATION_TEMPLATE"
+            description="COM_SEVEN_AUTOMATION_TEMPLATE_DESC"
+            required="true"
+            rows="5"
+            cols="50"
+            filter="raw"
+            class="automation-template-field"
+        />
+
+        <field
+            name="sender_id"
+            type="text"
+            label="COM_SEVEN_FROM"
+            description="COM_SEVEN_FROM_DESC"
+            default="seven"
+            size="20"
+        />
+
+        <field
+            name="recipient_type"
+            type="list"
+            label="COM_SEVEN_AUTOMATION_RECIPIENT_TYPE"
+            description="COM_SEVEN_AUTOMATION_RECIPIENT_TYPE_DESC"
+            default="customer"
+            class="automation-recipient-type"
+        >
+            <option value="customer">COM_SEVEN_RECIPIENT_CUSTOMER</option>
+            <option value="admin">COM_SEVEN_RECIPIENT_ADMIN</option>
+            <option value="custom">COM_SEVEN_RECIPIENT_CUSTOM</option>
+        </field>
+
+        <field
+            name="custom_recipient"
+            type="tel"
+            label="COM_SEVEN_AUTOMATION_CUSTOM_RECIPIENT"
+            description="COM_SEVEN_AUTOMATION_CUSTOM_RECIPIENT_DESC"
+            size="30"
+            showon="recipient_type:custom"
+        />
+    </fieldset>
+
+    <fieldset name="options" label="COM_SEVEN_OPTIONS">
+        <field
+            name="flash"
+            type="checkbox"
+            label="COM_SEVEN_FLASH"
+            description="COM_SEVEN_FLASH_DESC"
+        />
+
+        <field
+            name="unicode"
+            type="checkbox"
+            label="COM_SEVEN_UNICODE"
+            description="COM_SEVEN_UNICODE_DESC"
+        />
+
+        <field
+            name="performance_tracking"
+            type="checkbox"
+            label="COM_SEVEN_PERFORMANCE_TRACKING"
+            description="COM_SEVEN_PERFORMANCE_TRACKING_DESC"
+        />
+    </fieldset>
+</form>

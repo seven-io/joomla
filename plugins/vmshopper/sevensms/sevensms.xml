@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="vmshopper" method="upgrade">
+    <name>plg_vmshopper_sevensms</name>
+    <author>seven communications GmbH &amp; Co. KG</author>
+    <creationDate>January 2026</creationDate>
+    <copyright>Copyright (C) seven communications GmbH &amp; Co. KG</copyright>
+    <license>MIT</license>
+    <authorEmail>support@seven.io</authorEmail>
+    <authorUrl>https://www.seven.io</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_VMSHOPPER_SEVENSMS_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="sevensms">sevensms.php</filename>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_vmshopper_sevensms.ini</language>
+        <language tag="en-GB">en-GB/plg_vmshopper_sevensms.sys.ini</language>
+        <language tag="de-DE">de-DE/plg_vmshopper_sevensms.ini</language>
+        <language tag="de-DE">de-DE/plg_vmshopper_sevensms.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="enabled_order_confirmed"
+                    type="radio"
+                    label="PLG_VMSHOPPER_SEVENSMS_ORDER_CONFIRMED"
+                    description="PLG_VMSHOPPER_SEVENSMS_ORDER_CONFIRMED_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="enabled_order_status_change"
+                    type="radio"
+                    label="PLG_VMSHOPPER_SEVENSMS_ORDER_STATUS"
+                    description="PLG_VMSHOPPER_SEVENSMS_ORDER_STATUS_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="enabled_order_shipped"
+                    type="radio"
+                    label="PLG_VMSHOPPER_SEVENSMS_ORDER_SHIPPED"
+                    description="PLG_VMSHOPPER_SEVENSMS_ORDER_SHIPPED_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="enabled_order_cancelled"
+                    type="radio"
+                    label="PLG_VMSHOPPER_SEVENSMS_ORDER_CANCELLED"
+                    description="PLG_VMSHOPPER_SEVENSMS_ORDER_CANCELLED_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="details">
+        <field name="id" type="hidden" />
+
+        <field
+            name="to"
+            type="text"
+            label="COM_SEVEN_TO_LABEL"
+            description="COM_SEVEN_TO_DESC"
+            size="30"
+        />
+
+        <field
+            name="text"
+            type="textarea"
+            label="COM_SEVEN_TEXT_LABEL"
+            description="COM_SEVEN_VOICE_TEXT_DESC"
+            required="true"
+            rows="5"
+            cols="50"
+        />
+
+        <field
+            name="from"
+            type="text"
+            label="COM_SEVEN_FROM"
+            description="COM_SEVEN_FROM_DESC"
+            default="seven"
+            size="20"
+        />
+    </fieldset>
+
+    <fieldset name="virtuemart" label="COM_SEVEN_VIRTUEMART">
+        <field
+            name="country_id"
+            type="sql"
+            label="COM_SEVEN_COUNTRY"
+            description="COM_SEVEN_COUNTRY_DESC"
+            query="SELECT virtuemart_country_id AS value, country_name AS text FROM #__virtuemart_countries ORDER BY country_name"
+            key_field="value"
+            value_field="text"
+        >
+            <option value="">- Select Country -</option>
+        </field>
+
+        <field
+            name="shopper_group_id"
+            type="sql"
+            label="COM_SEVEN_SHOPPER_GROUP"
+            description="COM_SEVEN_SHOPPER_GROUP_DESC"
+            query="SELECT virtuemart_shoppergroup_id AS value, shopper_group_name AS text FROM #__virtuemart_shoppergroups ORDER BY shopper_group_name"
+            key_field="value"
+            value_field="text"
+        >
+            <option value="">- Select Shopper Group -</option>
+        </field>
+    </fieldset>
+</form>
