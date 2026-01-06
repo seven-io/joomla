@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="details">
+        <field
+            name="id"
+            type="hidden"
+        />
+        <field
+            name="api_key"
+            type="text"
+            label="COM_SEVEN_API_KEY_LABEL"
+            description="COM_SEVEN_API_KEY_DESC"
+            required="true"
+            size="60"
+        />
+        <field
+            name="published"
+            type="list"
+            label="JSTATUS"
+            default="0"
+        >
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+    </fieldset>
+</form>

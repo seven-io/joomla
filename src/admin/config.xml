@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset name="general" label="COM_SEVEN_CONFIG_GENERAL" description="COM_SEVEN_CONFIG_GENERAL_DESC">
+        <field
+            name="admin_phone"
+            type="tel"
+            label="COM_SEVEN_CONFIG_ADMIN_PHONE"
+            description="COM_SEVEN_CONFIG_ADMIN_PHONE_DESC"
+            hint="+49170123456"
+            filter="string"
+        />
+        <field
+            name="admin_phone_2"
+            type="tel"
+            label="COM_SEVEN_CONFIG_ADMIN_PHONE_2"
+            description="COM_SEVEN_CONFIG_ADMIN_PHONE_2_DESC"
+            hint="+49170123456"
+            filter="string"
+        />
+    </fieldset>
+    <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            validate="rules"
+            filter="rules"
+            component="com_seven"
+            section="component"
+        />
+    </fieldset>
+</config>

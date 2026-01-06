@@ -1,24 +1,33 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<extension type="component" version="3.8" method="upgrade">
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
     <name>COM_SEVEN</name>
-    <creationDate>June 2023</creationDate>
+    <creationDate>January 2026</creationDate>
     <author>seven communications GmbH &amp; Co. KG</author>
     <authorEmail>support@seven.io</authorEmail>
     <authorUrl>https://www.seven.io</authorUrl>
     <copyright>seven communications GmbH &amp; Co. KG</copyright>
-    <license>MIT; see LICENSE.txt</license>
-    <version>2.0</version>
+    <license>MIT</license>
+    <version>3.1.0</version>
     <description>COM_SEVEN_XML_DESCRIPTION</description>
+
+    <compatibility>
+        <cms>
+            <targetplatform name="joomla" version="5.*"/>
+            <targetplatform name="joomla" version="6.*"/>
+        </cms>
+    </compatibility>
+
+    <namespace path="src">Seven\Component\Seven</namespace>
 
     <install>
         <sql>
-            <file driver="mysql" charset="utf8">sql/install/mysql.sql</file>
+            <file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
         </sql>
     </install>
 
     <uninstall>
         <sql>
-            <file driver="mysql" charset="utf8">sql/uninstall/mysql.sql</file>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
         </sql>
     </uninstall>
 
@@ -29,31 +38,28 @@
     </update>
 
     <administration>
-        <menu view="configuration">COM_SEVEN</menu>
+        <menu view="configurations">COM_SEVEN</menu>
         <submenu>
-            <!-- All & must be escaped to &amp; for the file to be valid XML and be parsed by the installer -->
-            <menu link="option=com_seven">COM_SEVEN_CONFIGURATIONS</menu>
+            <menu link="option=com_seven&amp;view=configurations">COM_SEVEN_CONFIGURATIONS</menu>
+            <menu link="option=com_seven&amp;view=automations">COM_SEVEN_AUTOMATIONS</menu>
             <menu link="option=com_seven&amp;view=messages">COM_SEVEN_MESSAGES</menu>
             <menu link="option=com_seven&amp;view=voices">COM_SEVEN_VOICE_MESSAGES</menu>
         </submenu>
-
-        <files folder="administrator/components/com_seven">
+        <files folder="admin">
             <filename>access.xml</filename>
-            <filename>composer.json</filename>
-            <filename>composer.lock</filename>
             <filename>config.xml</filename>
-            <filename>controller.php</filename>
-            <filename>LICENSE.txt</filename>
-            <filename>seven.php</filename>
-            <folder>controllers</folder>
-            <folder>exceptions</folder>
-            <folder>helpers</folder>
-            <folder>language</folder>
-            <folder>models</folder>
+            <folder>forms</folder>
+            <folder>services</folder>
             <folder>sql</folder>
-            <folder>tables</folder>
-            <folder>vendor</folder>
-            <folder>views</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
         </files>
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/com_seven.ini</language>
+            <language tag="en-GB">en-GB/com_seven.sys.ini</language>
+            <language tag="de-DE">de-DE/com_seven.ini</language>
+            <language tag="de-DE">de-DE/com_seven.sys.ini</language>
+        </languages>
     </administration>
+
 </extension>

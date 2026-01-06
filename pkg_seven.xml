@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" method="upgrade">
+    <name>PKG_SEVEN</name>
+    <packagename>seven</packagename>
+    <version>3.1.0</version>
+    <creationDate>January 2026</creationDate>
+    <author>seven communications GmbH &amp; Co. KG</author>
+    <authorEmail>support@seven.io</authorEmail>
+    <authorUrl>https://www.seven.io</authorUrl>
+    <copyright>seven communications GmbH &amp; Co. KG</copyright>
+    <license>MIT</license>
+    <description>PKG_SEVEN_DESCRIPTION</description>
+
+    <scriptfile>script.php</scriptfile>
+
+    <files>
+        <file type="component" id="com_seven">com_seven.zip</file>
+        <file type="plugin" id="sevensms" group="system">plg_system_sevensms.zip</file>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/pkg_seven.ini</language>
+        <language tag="de-DE">de-DE/pkg_seven.ini</language>
+    </languages>
+</extension>
