@@ -1,5 +1,6 @@
 <img src="https://www.seven.io/wp-content/uploads/Logo.svg" width="250" />
 
+> **⚠️ Deprecated:** This branch is no longer actively maintained. For Joomla 5/6, please use the [`master` branch](https://github.com/seven-io/joomla) which includes OAuth 2.0 authentication, SMS automation, and more.
 
 # Official Joomla 3.9+ & VirtueMart 3.8+ plugin for seven.io
 
